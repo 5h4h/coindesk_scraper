@@ -51,7 +51,7 @@ class CoindeskSpider(scrapy.Spider):
 
 
 
-        if data["next"]:  #increments the page by a value of '1' if it contains the word 'next'
+        if data["next"]:
             self.page += 1 #{self.page}
             url = f'https://www.coindesk.com/wp-json/v1/articles/category/tech/{self.page}?mode=list' #this URL will need to be changed as well if you change start_urls
             yield scrapy.Request(url=url, callback=self.parse)
